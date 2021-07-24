@@ -1,4 +1,4 @@
-package com.github.moregorenine;
+package com.github.moregorenine.ch02_jpa_start1;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -12,6 +12,7 @@ public class JpaMain {
 
         //엔티티 매니저 팩토리 생성
         //애플리케이션 전체에서 딱 한 번만 생성하고 공유해서 사용해야 합니다.
+        //persistence.xml에서 이름이 'jpa-programming'인 persistence-unit을 찾아서 엔티티 매니저 팩토리를 생성합니다.
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa-programming");
         //엔티티 매니저 생성
         //엔티티를 DB에 CRUD 할 수 있습니다.
@@ -51,6 +52,7 @@ public class JpaMain {
         System.out.println("findMember=" + findMember.getUsername() + ", age=" + findMember.getAge());
 
         //목록 조회
+        //JPA는 SQL을 추상화한 JPQL(Java Persistence Query Language)이라는 객체지향 쿼리 언어를 제공합니다.
         List<Member> members = em.createQuery("select m from Member m", Member.class).getResultList();
         System.out.println("members.size=" + members.size());
 
