@@ -35,11 +35,11 @@ public class JpaMain {
 
     public static void logic(EntityManager em) {
 
-        String id = "id2";
+        String id = "id1";
         Member member = new Member();
         member.setId(id);
         member.setUsername("moregorenine");
-        member.setAge(40);
+        member.setAge(2);
 
         //등록
         em.persist(member);
