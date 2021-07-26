@@ -36,28 +36,28 @@ public class JpaMain {
     public static void logic(EntityManager em) {
 
         String id = "id1";
-        Member member = new Member();
-        member.setId(id);
-        member.setUsername("moregorenine");
-        member.setAge(2);
+        MemberCh02 memberCh02 = new MemberCh02();
+        memberCh02.setId(id);
+        memberCh02.setUsername("moregorenine");
+        memberCh02.setAge(2);
 
         //등록
-        em.persist(member);
+        em.persist(memberCh02);
 
         //수정
-        member.setAge(20);
+        memberCh02.setAge(20);
 
         //한 건 조회
-        Member findMember = em.find(Member.class, id);
-        System.out.println("findMember=" + findMember.getUsername() + ", age=" + findMember.getAge());
+        MemberCh02 findMemberCh02 = em.find(MemberCh02.class, id);
+        System.out.println("findMember=" + findMemberCh02.getUsername() + ", age=" + findMemberCh02.getAge());
 
         //목록 조회
         //JPA는 SQL을 추상화한 JPQL(Java Persistence Query Language)이라는 객체지향 쿼리 언어를 제공합니다.
-        List<Member> members = em.createQuery("select m from Member m", Member.class).getResultList();
-        System.out.println("members.size=" + members.size());
+        List<MemberCh02> memberCh02s = em.createQuery("select m from MemberCh02 m", MemberCh02.class).getResultList();
+        System.out.println("members.size=" + memberCh02s.size());
 
         //삭제
-        em.remove(member);
+        em.remove(memberCh02);
     }
 
 }
